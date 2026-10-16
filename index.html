@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MideFácil: conversor de medidas de longitud y calculadora de IMC.">
-  <title>MideFácil | Conversor de medidas</title>
+  <meta name="description" content="MideFácil: calculadora del Índice de Masa Corporal (IMC).">
+  <title>MideFácil | Calculadora de IMC</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -22,7 +22,7 @@
     <ul>
       <li><a href="#inicio" data-seccion="inicio">Inicio</a></li>
       <li><a href="#calculadora" data-seccion="calculadora">Calculadora</a></li>
-      <li><a href="#imc" data-seccion="imc">IMC</a></li>
+      <li><a href="#tabla" data-seccion="tabla">Tabla IMC</a></li>
     </ul>
   </nav>
 
@@ -32,60 +32,20 @@
     <section id="inicio" class="seccion">
       <div class="tarjeta">
         <h1>Bienvenido a MideFácil</h1>
-        <p class="subtitulo">Herramientas simples para medir sin complicaciones</p>
-        <p>En el menú encontrará dos herramientas:</p>
+        <p class="subtitulo">Calcule su Índice de Masa Corporal en segundos</p>
+        <p>El <strong>IMC</strong> relaciona el peso con la estatura y sirve como referencia para saber si el peso de un adulto es adecuado.</p>
         <ul class="lista-inicio">
-          <li><strong>Calculadora:</strong> convierte longitudes entre milímetros, centímetros, metros, kilómetros, pulgadas y pies.</li>
-          <li><strong>IMC:</strong> calcula el Índice de Masa Corporal a partir del peso y la estatura.</li>
+          <li><strong>Calculadora:</strong> ingrese su peso y estatura para obtener su IMC y su clasificación.</li>
+          <li><strong>Tabla IMC:</strong> revise los rangos de clasificación de la OMS.</li>
         </ul>
         <button type="button" class="boton boton-principal" data-ir="calculadora">Ir a la calculadora</button>
       </div>
     </section>
 
-    <!-- Sección 2: Calculadora de conversión -->
+    <!-- Sección 2: Calculadora de IMC -->
     <section id="calculadora" class="seccion" hidden>
       <div class="tarjeta">
-        <h1>Calculadora</h1>
-        <p class="subtitulo">Conversor de medidas de longitud</p>
-
-        <form id="form-conversion" class="formulario" novalidate>
-          <label for="txt-medida">Medida a convertir</label>
-          <input type="text" id="txt-medida" inputmode="decimal" placeholder="Ej.: 2,5" autocomplete="off">
-
-          <div class="fila-unidades">
-            <div class="campo">
-              <label for="sel-desde">Desde</label>
-              <select id="sel-desde"></select>
-            </div>
-            <button type="button" id="btn-intercambiar" class="boton boton-icono" title="Intercambiar unidades" aria-label="Intercambiar unidades">&#8644;</button>
-            <div class="campo">
-              <label for="sel-hacia">Hacia</label>
-              <select id="sel-hacia"></select>
-            </div>
-          </div>
-
-          <label for="txt-resultado">Resultado</label>
-          <input type="text" id="txt-resultado" readonly placeholder="Aquí aparecerá el resultado">
-
-          <p id="msg-conversion" class="mensaje" role="alert" aria-live="polite"></p>
-
-          <div class="fila-botones">
-            <button type="submit" id="btn-calcular" class="boton boton-principal">Calcular</button>
-            <button type="button" id="btn-limpiar" class="boton boton-secundario">Limpiar</button>
-          </div>
-        </form>
-
-        <h2 class="titulo-historial">Últimas conversiones</h2>
-        <ul id="lista-historial" class="historial">
-          <li class="historial-vacio">Todavía no hay conversiones.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Sección 3: Índice de Masa Corporal -->
-    <section id="imc" class="seccion" hidden>
-      <div class="tarjeta">
-        <h1>Índice de Masa Corporal</h1>
+        <h1>Calculadora de IMC</h1>
         <p class="subtitulo">IMC = peso (kg) / estatura (m)²</p>
 
         <form id="form-imc" class="formulario" novalidate>
@@ -101,11 +61,41 @@
           <p id="msg-imc" class="mensaje" role="alert" aria-live="polite"></p>
 
           <div class="fila-botones">
-            <button type="submit" id="btn-calcular-imc" class="boton boton-principal">Calcular</button>
-            <button type="reset" id="btn-limpiar-imc" class="boton boton-secundario">Limpiar</button>
+            <button type="submit" id="btn-calcular" class="boton boton-principal">Calcular</button>
+            <button type="reset" id="btn-limpiar" class="boton boton-secundario">Limpiar</button>
           </div>
         </form>
-        <p class="nota">Referencia: clasificación de la Organización Mundial de la Salud para adultos. No reemplaza una evaluación médica.</p>
+
+        <h2 class="titulo-historial">Últimos cálculos</h2>
+        <ul id="lista-historial" class="historial">
+          <li class="historial-vacio">Todavía no hay cálculos.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Sección 3: Tabla de clasificación -->
+    <section id="tabla" class="seccion" hidden>
+      <div class="tarjeta">
+        <h1>Tabla IMC</h1>
+        <p class="subtitulo">Clasificación de la OMS para adultos</p>
+
+        <table class="tabla-imc">
+          <thead>
+            <tr>
+              <th scope="col">IMC</th>
+              <th scope="col">Clasificación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Menos de 18,5</td><td>Bajo peso</td></tr>
+            <tr><td>18,5 a 24,9</td><td>Peso normal</td></tr>
+            <tr><td>25,0 a 29,9</td><td>Sobrepeso</td></tr>
+            <tr><td>30,0 o más</td><td>Obesidad</td></tr>
+          </tbody>
+        </table>
+
+        <p class="nota">Ejemplo: una persona de 70 kg y 175 cm tiene un IMC de 70 / (1,75 × 1,75) = 22,9 (peso normal). Esta tabla es solo una referencia y no reemplaza una evaluación médica.</p>
+        <button type="button" class="boton boton-principal" data-ir="calculadora">Calcular mi IMC</button>
       </div>
     </section>
 

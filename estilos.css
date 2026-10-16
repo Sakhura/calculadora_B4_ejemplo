@@ -169,16 +169,6 @@ h1 {
   border-color: var(--error);
 }
 
-.fila-unidades {
-  display: flex;
-  align-items: flex-end;
-  gap: 10px;
-}
-
-.campo {
-  flex: 1;
-}
-
 .fila-botones {
   display: flex;
   gap: 10px;
@@ -211,20 +201,12 @@ h1 {
   border: 1px solid var(--gris-oscuro);
 }
 
-.boton-icono {
-  padding: 8px 12px;
-  margin-bottom: 1px;
-  font-size: 1.3rem;
-  background-color: var(--gris-oscuro);
-  color: var(--blanco);
-}
-
 .boton:focus-visible {
   outline: 3px solid var(--naranja-claro);
   outline-offset: 2px;
 }
 
-/* 8. Mensajes, historial y notas */
+/* 8. Mensajes, historial, tabla y notas */
 .mensaje {
   min-height: 1.3em;
   margin: 8px 0 0;
@@ -254,6 +236,33 @@ h1 {
   list-style: none;
   margin-left: -20px;
   color: #6A6A6A;
+}
+
+.tabla-imc {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.tabla-imc th,
+.tabla-imc td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.tabla-imc th {
+  background-color: var(--gris-oscuro);
+  color: var(--blanco);
+}
+
+.tabla-imc tbody tr:nth-child(even) {
+  background-color: var(--durazno);
+}
+
+.tarjeta > .boton-principal {
+  width: 100%;
+  margin-top: 8px;
 }
 
 .lista-inicio li {
@@ -300,16 +309,6 @@ h1 {
   .logo {
     width: 80px;
     height: 80px;
-  }
-
-  .fila-unidades {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .boton-icono {
-    align-self: center;
-    transform: rotate(90deg);
   }
 
   .menu ul {
