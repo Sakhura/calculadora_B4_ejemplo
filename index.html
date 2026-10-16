@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MideFácil: conversor de medidas de longitud y calculadora de IMC.">
+  <title>MideFácil | Conversor de medidas</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- Encabezado: logo a la izquierda y banner a la derecha -->
+  <header class="encabezado">
+    <a href="#inicio" class="logo-enlace" title="Ir al inicio">
+      <img src="img/logo.jpg" alt="Logo de MideFácil: una calculadora naranja" class="logo">
+    </a>
+    <div class="banner" role="img" aria-label="Banner con útiles de matemática y una calculadora"></div>
+  </header>
+
+  <!-- Menú lateral de navegación -->
+  <nav class="menu" aria-label="Menú principal">
+    <ul>
+      <li><a href="#inicio" data-seccion="inicio">Inicio</a></li>
+      <li><a href="#calculadora" data-seccion="calculadora">Calculadora</a></li>
+      <li><a href="#imc" data-seccion="imc">IMC</a></li>
+    </ul>
+  </nav>
+
+  <main class="contenido">
+
+    <!-- Sección 1: Inicio -->
+    <section id="inicio" class="seccion">
+      <div class="tarjeta">
+        <h1>Bienvenido a MideFácil</h1>
+        <p class="subtitulo">Herramientas simples para medir sin complicaciones</p>
+        <p>En el menú encontrará dos herramientas:</p>
+        <ul class="lista-inicio">
+          <li><strong>Calculadora:</strong> convierte longitudes entre milímetros, centímetros, metros, kilómetros, pulgadas y pies.</li>
+          <li><strong>IMC:</strong> calcula el Índice de Masa Corporal a partir del peso y la estatura.</li>
+        </ul>
+        <button type="button" class="boton boton-principal" data-ir="calculadora">Ir a la calculadora</button>
+      </div>
+    </section>
+
+    <!-- Sección 2: Calculadora de conversión -->
+    <section id="calculadora" class="seccion" hidden>
+      <div class="tarjeta">
+        <h1>Calculadora</h1>
+        <p class="subtitulo">Conversor de medidas de longitud</p>
+
+        <form id="form-conversion" class="formulario" novalidate>
+          <label for="txt-medida">Medida a convertir</label>
+          <input type="text" id="txt-medida" inputmode="decimal" placeholder="Ej.: 2,5" autocomplete="off">
+
+          <div class="fila-unidades">
+            <div class="campo">
+              <label for="sel-desde">Desde</label>
+              <select id="sel-desde"></select>
+            </div>
+            <button type="button" id="btn-intercambiar" class="boton boton-icono" title="Intercambiar unidades" aria-label="Intercambiar unidades">&#8644;</button>
+            <div class="campo">
+              <label for="sel-hacia">Hacia</label>
+              <select id="sel-hacia"></select>
+            </div>
+          </div>
+
+          <label for="txt-resultado">Resultado</label>
+          <input type="text" id="txt-resultado" readonly placeholder="Aquí aparecerá el resultado">
+
+          <p id="msg-conversion" class="mensaje" role="alert" aria-live="polite"></p>
+
+          <div class="fila-botones">
+            <button type="submit" id="btn-calcular" class="boton boton-principal">Calcular</button>
+            <button type="button" id="btn-limpiar" class="boton boton-secundario">Limpiar</button>
+          </div>
+        </form>
+
+        <h2 class="titulo-historial">Últimas conversiones</h2>
+        <ul id="lista-historial" class="historial">
+          <li class="historial-vacio">Todavía no hay conversiones.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Sección 3: Índice de Masa Corporal -->
+    <section id="imc" class="seccion" hidden>
+      <div class="tarjeta">
+        <h1>Índice de Masa Corporal</h1>
+        <p class="subtitulo">IMC = peso (kg) / estatura (m)²</p>
+
+        <form id="form-imc" class="formulario" novalidate>
+          <label for="txt-peso">Peso (kg)</label>
+          <input type="text" id="txt-peso" inputmode="decimal" placeholder="Ej.: 68,5" autocomplete="off">
+
+          <label for="txt-estatura">Estatura (cm)</label>
+          <input type="text" id="txt-estatura" inputmode="decimal" placeholder="Ej.: 170" autocomplete="off">
+
+          <label for="txt-imc">Resultado</label>
+          <input type="text" id="txt-imc" readonly placeholder="Aquí aparecerá su IMC">
+
+          <p id="msg-imc" class="mensaje" role="alert" aria-live="polite"></p>
+
+          <div class="fila-botones">
+            <button type="submit" id="btn-calcular-imc" class="boton boton-principal">Calcular</button>
+            <button type="reset" id="btn-limpiar-imc" class="boton boton-secundario">Limpiar</button>
+          </div>
+        </form>
+        <p class="nota">Referencia: clasificación de la Organización Mundial de la Salud para adultos. No reemplaza una evaluación médica.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>MideFácil &middot; Actividad Evaluativa EPE1 &middot; Taller de Aplicaciones Java</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
